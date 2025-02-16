@@ -1,0 +1,26 @@
+baseURL = 'https://todd-ford.com/'
+languageCode = 'en-us'
+title = 'Todd Ford'
+theme = "paper"
+
+[params]
+
+color = 'gray'
+
+github = 'toddcford'
+name = ''
+bio = 'Software Engineer'
+monoDarkIcon = true
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 10
