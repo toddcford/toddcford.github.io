@@ -1,5 +1,39 @@
-/public/**/*
-/resources/_gen/
-/assets/jsconfig.json
+# Hugo-generated output
+/public/
+/resources/
 hugo_stats.json
-.hugo_build.lock
+
+# Theme as a Git submodule (if applicable, don’t ignore if manually copied)
+# Uncomment if you use a submodule
+/themes/
+
+# Local environment files
+.env
+.env.local
+
+# Hugo build artifacts
+/.hugo_build.lock
+
+# Node.js dependencies (if using npm/yarn for assets)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
