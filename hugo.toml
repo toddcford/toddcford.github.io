@@ -1,4 +1,4 @@
-baseURL = 'http://100.26.46.24'
+baseURL = 'https://todd-ford.com'
 languageCode = 'en-us'
 title = 'Todd Ford'
 theme = "paper"
@@ -14,11 +14,11 @@ monoDarkIcon = true
 
 [menu]
 
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 10
+  # [[menu.main]]
+  #   identifier = "about"
+  #   name = "About"
+  #   url = "/about/"
+  #   weight = 10
   [[menu.main]]
     identifier = "contact"
     name = "Contact"
