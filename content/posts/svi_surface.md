@@ -10,7 +10,7 @@ draft = false
 
 The key pieces to the implementation are:
 
-1. **Data Collection**: [Deribit](https://www.deribit.com/futures/BTC-PERPETUAL) is currently the leading crypto derivatives exchange and offers real time market data for Bitcoin options and futures through their public facing websocket API.
+1. **Data Collection**: Many crypto exchanges have public facing APIs where you can subscribe to real time market data. This project gets real time options and futures prices over websocket from the leading crypto derivatives exchange.
 
 2. **SVI Parameterization**: The raw SVI parameterization:
 
