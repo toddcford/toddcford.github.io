@@ -2,6 +2,7 @@ baseURL = 'https://todd-ford.com'
 languageCode = 'en-us'
 title = 'Todd Ford'
 theme = "paper"
+googleAnalytics = "G-CFFHQDG3GE"
 
 [params]
 
