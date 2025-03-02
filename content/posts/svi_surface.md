@@ -1,5 +1,5 @@
 +++
-title = 'SVI Vol Skews for Bitcoin Options'
+title = 'SVI Volatility Skews for Bitcoin Options'
 date = 2025-02-16T18:46:18-06:00
 draft = false
 +++
