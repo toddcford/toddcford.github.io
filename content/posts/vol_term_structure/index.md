@@ -20,5 +20,5 @@ Clients connect to the server and Nginx routes traffic to a websocket server and
 {{< figure src="architecture.jpg" alt="Application Architresecture" caption="Application Architecture" >}}
 
 ## Visualization:
-The visualization is a simple Typescript/React application leveraging [https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API](WebSockets) and [Recharts](https://recharts.org/en-US/)
+The visualization is a simple Typescript/React application leveraging [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) and [Recharts](https://recharts.org/en-US/)
 
