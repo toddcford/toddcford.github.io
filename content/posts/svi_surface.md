@@ -6,7 +6,7 @@ draft = false
 
 [This](https://todd-ford.com/app/svi-parameterization) project implements the Stochastic Volatility Inspired (SVI) parameterization to calibrate volatility skews for Bitcoin options across multiple expiries. The implementation is based on a [paper](https://arxiv.org/pdf/1204.0646) by Gatheral and Jacquier, demonstrating methods for fitting SVI surfaces while guaranteeing the absence of static arbitrage. However, while this project calibrates skews to market data in real time, the enforcement of the no-arbitrage conditions is left for future work.
 
-## Project Overview
+## Overview and Methodology
 
 The key pieces to the implementation are:
 
@@ -27,16 +27,14 @@ The key pieces to the implementation are:
    - m shifts the curve left/right
    - σ affects the ATM curvature of the smile
 
-   In the [demo](https://todd-ford.com/app/svi-parameterization), these parameters can be adjusted to see the effect on the SVI fits.
-
 3. **Calibration Process**:
-
    - The calibration is done using a Levenberg-Marquardt optimization to minimize the difference between market and model implied volatilities
 
 4. **Visualization**:
-   - 2D slice views for individual expiry dates
-   - Real-time updates as market data changes
+    - The [visualization](https://todd-ford.com/app/svi-parameterization) is a React application with 2D views for each tenor overlaying the current market vols with the SVI fit. The charts are made with [Nivo](https://nivo.rocks/)
+    - The parameters for each fit can be adjusted on the front end and the fit will update accordingly. To get back to the optimized fit simply refresh the page.
 
 ## Future Work
 
-The paper further explains how to take the calibrated parameters of the Raw SVI and transform them into the Natural and Jump Wing versions of the model, with the Jump Wing version being expressed with parameters more intuitive for traders. It also demonstrates further requirements for guaranteeing the absence of calendar and butterfly arbitrage. Finally, interploating/extrapolating between and beyond listed tenors would be quite valuable for valuing options for custom dates and strikes.
+As stated above, this implementation does not guarantee the absence of static arbitrage, and occasionally the optimizations can get stuck on local minima, resulting in poor fits. Enforcing the no-arbitrage constraints and building out methods for 
+interpolating between tenors and extrapolating beyond the furthest listed tenor, resulting in a full surface, would be a nice extension to the current project.

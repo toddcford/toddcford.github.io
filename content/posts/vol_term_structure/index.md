@@ -4,7 +4,7 @@ date = 2025-03-06T00:00:00-00:00
 draft = false
 +++
 
-[This](https://todd-ford.com/app/vol-term-structure) is a simple application to display the forward implied at-the-money
+[This](https://todd-ford.com/app/vol-term-structure) is an application that displays the forward implied at-the-money
 volatility term structure for Bitcoin options in real time.
 
 ## Methodology
@@ -20,5 +20,5 @@ Clients connect to the server and Nginx routes traffic to a websocket server and
 {{< figure src="architecture.jpg" alt="Application Architresecture" caption="Application Architecture" >}}
 
 ## Visualization:
-The visualization is a simple Typescript/React application leveraging [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) and [Recharts](https://recharts.org/en-US/)
+The [visualization](https://todd-ford.com/app/vol-term-structure) is a Typescript/React application leveraging [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) and [Recharts](https://recharts.org/en-US/)
 
