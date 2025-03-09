@@ -4,7 +4,7 @@ date = 2025-02-16T18:46:18-06:00
 draft = false
 +++
 
-[This](https://todd-ford.com/app) project implements the Stochastic Volatility Inspired (SVI) parameterization to calibrate volatility skews for Bitcoin options across multiple expiries. The implementation is based on a [paper](https://arxiv.org/pdf/1204.0646) by Gatheral and Jacquier, demonstrating methods for fitting SVI surfaces while guaranteeing the absence of static arbitrage. However, while this project calibrates skews to market data in real time, the enforcement of the no-arbitrage conditions is left for future work.
+[This](https://todd-ford.com/app/svi-parameterization) project implements the Stochastic Volatility Inspired (SVI) parameterization to calibrate volatility skews for Bitcoin options across multiple expiries. The implementation is based on a [paper](https://arxiv.org/pdf/1204.0646) by Gatheral and Jacquier, demonstrating methods for fitting SVI surfaces while guaranteeing the absence of static arbitrage. However, while this project calibrates skews to market data in real time, the enforcement of the no-arbitrage conditions is left for future work.
 
 ## Project Overview
 
@@ -27,7 +27,7 @@ The key pieces to the implementation are:
    - m shifts the curve left/right
    - σ affects the ATM curvature of the smile
 
-   In the [demo](https://todd-ford.com/app), these parameters can be adjusted to see the effect on the SVI fits.
+   In the [demo](https://todd-ford.com/app/svi-parameterization), these parameters can be adjusted to see the effect on the SVI fits.
 
 3. **Calibration Process**:
 
