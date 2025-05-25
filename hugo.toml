@@ -1,6 +1,6 @@
 baseURL = 'https://todd-ford.com'
 languageCode = 'en-us'
-title = 'Todd Ford'
+title = 'Todd Ford Test'
 theme = "paper"
 googleAnalytics = "G-CFFHQDG3GE"
 
