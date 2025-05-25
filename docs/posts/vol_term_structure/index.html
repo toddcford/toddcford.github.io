@@ -1,0 +1,369 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fbfbfb"
+  lang="en-us"
+  dir="ltr"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Forward Implied Volatility Term Structure - Todd Ford</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="This is an application that displays the forward implied at-the-money
+volatility term structure for Bitcoin options in real time.
+Methodology
+&ldquo;At-the-money&rdquo; in this case is defined as the option with the strike price nearest to the underlying forward price. As the forward price rarely falls precisely on an exact strike, a linear interpolation is made between the volatilities of the two options with the nearest strikes (above and below) the forward. For option tenors without a corresponding listed forward, a similiar linear interpolation is made between the prices of the forwards nearest to the option tenor." />
+  <meta name="author" content="Todd Ford" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://toddcford.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://toddcford.github.io/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://toddcford.github.io/linkedin.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://toddcford.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link
+    rel="icon"
+    href="https://toddcford.github.io/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="https://toddcford.github.io/apple-touch-icon.png"
+  />
+
+  
+  <meta name="generator" content="Hugo 0.143.1">
+
+  
+  
+  
+  
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFFHQDG3GE"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CFFHQDG3GE');
+        }
+      </script>
+  
+  
+  <meta itemprop="name" content="Forward Implied Volatility Term Structure">
+  <meta itemprop="description" content="This is an application that displays the forward implied at-the-money volatility term structure for Bitcoin options in real time.
+Methodology “At-the-money” in this case is defined as the option with the strike price nearest to the underlying forward price. As the forward price rarely falls precisely on an exact strike, a linear interpolation is made between the volatilities of the two options with the nearest strikes (above and below) the forward. For option tenors without a corresponding listed forward, a similiar linear interpolation is made between the prices of the forwards nearest to the option tenor.">
+  <meta itemprop="datePublished" content="2025-03-06T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-03-06T00:00:00+00:00">
+  <meta itemprop="wordCount" content="210">
+  
+  <meta property="og:url" content="https://toddcford.github.io/posts/vol_term_structure/">
+  <meta property="og:site_name" content="Todd Ford">
+  <meta property="og:title" content="Forward Implied Volatility Term Structure">
+  <meta property="og:description" content="This is an application that displays the forward implied at-the-money volatility term structure for Bitcoin options in real time.
+Methodology “At-the-money” in this case is defined as the option with the strike price nearest to the underlying forward price. As the forward price rarely falls precisely on an exact strike, a linear interpolation is made between the volatilities of the two options with the nearest strikes (above and below) the forward. For option tenors without a corresponding listed forward, a similiar linear interpolation is made between the prices of the forwards nearest to the option tenor.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-06T00:00:00+00:00">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Forward Implied Volatility Term Structure">
+  <meta name="twitter:description" content="This is an application that displays the forward implied at-the-money volatility term structure for Bitcoin options in real time.
+Methodology “At-the-money” in this case is defined as the option with the strike price nearest to the underlying forward price. As the forward price rarely falls precisely on an exact strike, a linear interpolation is made between the volatilities of the two options with the nearest strikes (above and below) the forward. For option tenors without a corresponding listed forward, a similiar linear interpolation is made between the prices of the forwards nearest to the option tenor.">
+
+  
+  
+
+  
+  <link rel="canonical" href="https://toddcford.github.io/posts/vol_term_structure/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-[--w] px-8 lg:justify-center">
+  <div class="relative z-50 ltr:mr-auto rtl:ml-auto flex items-center">
+    <a class="-translate-y-[1px] text-2xl font-medium" href="https://toddcford.github.io/"
+      >Todd Ford</a
+    >
+    <div
+      class="btn-dark text-[0] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 ltr:-mr-8 rtl:-ml-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fbfbfb'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-10 rtl:space-x-reverse">
+      
+      <a
+        class="block text-center text-xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/contact/"
+        >Contact</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 rtl:space-x-reverse dark:invert ltr:lg:ml-14 rtl:lg:mr-14 lg:mt-0 lg:items-center"
+    >
+      
+      <a
+        class="h-7 w-7 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/toddcford1123"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-[--w] px-8 pb-16 pt-14 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-14">
+    <h1 class="!my-0 pb-2.5">Forward Implied Volatility Term Structure</h1>
+
+    
+    <div class="text-xs antialiased opacity-60">
+      
+      <time>Mar 6, 2025</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><a href="https://todd-ford.com/app/vol-term-structure">This</a> is an application that displays the forward implied at-the-money
+volatility term structure for Bitcoin options in real time.</p>
+<h2 id="methodology">Methodology</h2>
+<p>&ldquo;At-the-money&rdquo; in this case is defined as the option with the strike price nearest to the underlying forward price. As the forward price rarely falls precisely on an exact strike, a linear interpolation is made between the volatilities of the two options with the nearest strikes (above and below) the forward. For option tenors without a corresponding listed forward, a similiar linear interpolation is made between the prices of the forwards nearest to the option tenor.</p>
+<h2 id="architecture">Architecture</h2>
+<p>A diagram of the application architecture is pictured below. The primary application receives market data via websocket from a leading derivatives exhange. That MD is procecessed and published to Redis using Redis&rsquo;s <a href="https://redis.io/docs/latest/develop/interact/pubsub/">publish/subscibe paradigm</a>.</p>
+<p>Clients connect to the server and Nginx routes traffic to a websocket server and a REST API (built with <a href="https://fastapi.tiangolo.com/">FastAPI</a>) as appropriate. The REST API is responsible for sending back static configuration data contained in both Redis and a PostgreSQL database. The websocket server subscribes to the processed market data being published to Redis and handles incoming client connections, broadcasting the processed MD to client subscribers.</p>
+<figure><img src="/posts/vol_term_structure/architecture.jpg"
+    alt="Application Architresecture"><figcaption>
+      <p>Application Architecture</p>
+    </figcaption>
+</figure>
+
+<h2 id="visualization">Visualization:</h2>
+<p>The <a href="https://todd-ford.com/app/vol-term-structure">visualization</a> is a Typescript/React application leveraging <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a> and <a href="https://recharts.org/en-US/">Recharts</a></p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg !leading-[1.2] *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  >
+    
+    
+    <a class="ltr:ml-auto rtl:mr-auto justify-end pl-3" href="https://toddcford.github.io/posts/svi_surface/"
+      ><span>SVI Volatility Skews for Bitcoin Options</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="mx-auto flex h-[4.5rem] max-w-[--w] items-center px-8 text-xs uppercase tracking-wider opacity-60"
+>
+  <div class="mr-auto">
+  
+    &copy; 2025
+    <a class="link" href="https://toddcford.github.io/">Todd Ford</a>
+  
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    ></a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    ></a
+  >
+</footer>
+
+  </body>
+</html>
