@@ -1,7 +1,7 @@
 +++
 title = 'SVI Volatility Skews for Bitcoin Options'
 date = 2025-02-16T18:46:18-06:00
-draft = false
+draft = true
 +++
 
 [This](https://todd-ford.com/app/svi-parameterization) project implements the Stochastic Volatility Inspired (SVI) parameterization to calibrate volatility skews for Bitcoin options across multiple expiries. The implementation is based on a [paper](https://arxiv.org/pdf/1204.0646) by Gatheral and Jacquier, demonstrating methods for fitting SVI surfaces while guaranteeing the absence of static arbitrage. However, while this project calibrates skews to market data in real time, the enforcement of the no-arbitrage conditions is left for future work.

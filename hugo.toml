@@ -6,16 +6,19 @@ googleAnalytics = "G-CFFHQDG3GE"
 
 [params]
 
-color = 'gray'
+    color = 'linen'
 
-linkedin = 'toddcford1123'
-name = ''
-bio = 'Software Engineer'
-monoDarkIcon = true
+    linkedin = 'toddcford1123'
+    avatar = '/images/profile.jpg'
+    name = 'Todd Ford'
+    bio = 'I am a Senior Software Engineer at Blockfills- a global crypto currency liquidity provider'
+    
+    
+    monoDarkIcon = true
 
 [menu]
 
-  # [[menu.main]]
+  #[[menu.main]]
   #   identifier = "about"
   #   name = "About"
   #   url = "/about/"

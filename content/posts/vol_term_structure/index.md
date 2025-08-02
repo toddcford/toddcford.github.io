@@ -1,7 +1,7 @@
 +++
 title = 'Forward Implied Volatility Term Structure'
 date = 2025-03-06T00:00:00-00:00
-draft = false
+draft = true
 +++
 
 [This](https://todd-ford.com/app/vol-term-structure) is an application that displays the forward implied at-the-money

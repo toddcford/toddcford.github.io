@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section style="max-width: 900px; margin: 0 auto; overflow: hidden;">
+    <img src="{{ .Site.Params.avatar }}" alt="Profile Picture" 
+         style="border-radius: 50%; width: 175px; height: 175px; object-fit: cover; float: right; margin-right: 2rem;">  
+    <p> I am a Senior Software Engineer at <a href="https://blockfills.com" target="_blank">Blockfills</a> - a global crypto currency liquidity provider - where I've primarily supported both the OTC derivatives trading desk and our aggregated liquidity feed offered via API.</p>
+    <p> Previously, I was a trader at the proprietary trading firm <a href="https://gelbergroup.com" target="_blank">Gelber Group</a> in Chicago. I primarily focused on trading G10 Spot FX and equity index futures on the CME. </p>
+    <p> I graduated from <a href="https://www.williams.edu" target="_blank">Williams College</a> in 2016 with a B.A. in Math. </p>
+  </section>
+  
+
+  
+  {{ $pages := where .Site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ range $pages }}
+    {{ .Render "summary" }}
+  {{ end }}
+{{ end }}
