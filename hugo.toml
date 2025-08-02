@@ -6,7 +6,7 @@ googleAnalytics = "G-CFFHQDG3GE"
 
 [params]
 
-    color = 'linen'
+    color = 'gray'
 
     linkedin = 'toddcford1123'
     avatar = '/images/profile.jpg'
