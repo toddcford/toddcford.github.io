@@ -1,0 +1,16 @@
+/* body,
+body *,
+html,
+html * {
+  font-family: 'Courier New', Courier, monospace !important;
+  color: green;
+}
+
+/* Alternative approach with more specific selectors */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, li, ul, ol,
+input, textarea, button, select {
+  /* font-family: 'Courier New', Courier, monospace !important;
+  color: black; */
+}
